@@ -13,7 +13,7 @@ class BlogCrew:
         self.language = language
         self.word_count = word_count
         self.llm = ChatOpenAI(
-            model="gpt-4.1",
+            model="gpt-4-turbo",
             temperature=0.7
         )
         self.output_dir = self._create_output_dir()

@@ -1,42 +1,40 @@
-# Blog Post Generator with CrewAI
+# AI Blog Post Generator
 
-This Streamlit application uses CrewAI and OpenAI models to generate SEO-optimized blog posts based on keyword research and enhanced with AI-generated visual content suggestions.
+This Streamlit app uses CrewAI to generate SEO-optimized blog posts with visual design suggestions based on a given keyword.
 
 ## Setup
 
-1. Clone this repository
-2. Install dependencies:
+1. Clone the repository
+2. Create a virtual environment and activate it
+3. Install the requirements:
 ```bash
 pip install -r requirements.txt
 ```
-3. Create a `.env` file in the root directory with your API keys:
+4. Create a `.env` file in the root directory with the following variables:
 ```
 OPENAI_API_KEY=your_openai_api_key_here
 SERPER_API_KEY=your_serper_api_key_here
 ```
 
-## Running the Application
+## Running the app
 
-Run the Streamlit app with:
 ```bash
 streamlit run app.py
 ```
 
+## Requirements
+
+- Python 3.9+
+- OpenAI API key
+- Serper API key (for web search)
+
 ## Features
 
-- Keyword research using AI agents and SerperDev API
-- SEO-optimized content generation
-- Structured blog post creation with proper heading hierarchy
-- Support for multiple languages
+- SEO research on target keywords
+- Blog post generation with proper structure
+- Visual design suggestions for the blog post
+- Support for multiple languages (English, Spanish, Portuguese, French, German)
 - Customizable word count
-- AI-generated visual content suggestions every 200 words:
-  - Meme concepts
-  - Infographic layouts
-  - Custom graphics
-  - Stock photo recommendations
-  - Data visualization ideas
-- Meta description and title analysis
-- Comprehensive SEO pattern analysis
 
 ## How it Works
 
