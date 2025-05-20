@@ -3,7 +3,6 @@ from langchain_openai import ChatOpenAI
 from src.agents.researcher import ResearcherAgent
 from src.agents.writer import WriterAgent
 from src.agents.visual_designer import VisualDesignerAgent
-import os
 import json
 from datetime import datetime
 
@@ -16,24 +15,6 @@ class BlogCrew:
             model="gpt-4-turbo",
             temperature=0.7
         )
-        self.output_dir = self._create_output_dir()
-
-    def _create_output_dir(self) -> str:
-        """Create output directory with timestamp"""
-        timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-        output_dir = os.path.join("output", f"blog_{timestamp}")
-        os.makedirs(output_dir, exist_ok=True)
-        return output_dir
-
-    def _save_output(self, output: str | tuple, filename: str):
-        """Save output to a file"""
-        filepath = os.path.join(self.output_dir, filename)
-        with open(filepath, 'w', encoding='utf-8') as f:
-            if isinstance(output, tuple):
-                # If it's a tuple, join the elements with newlines
-                f.write('\n\n'.join(str(item) for item in output))
-            else:
-                f.write(str(output))
 
     def run(self):
         # Initialize agents
@@ -61,14 +42,13 @@ class BlogCrew:
         # Run the crew and get results
         crew_output = crew.kickoff()
         
-        # Save metadata
+        # Metadata
         metadata = {
             "keyword": self.keyword,
             "language": self.language,
             "word_count": self.word_count,
             "timestamp": datetime.now().isoformat()
         }
-        self._save_output(json.dumps(metadata, indent=2), "metadata.json")
         
         # Map results to correct files based on task outputs
         result_mapping = {
@@ -77,9 +57,4 @@ class BlogCrew:
             "visual_design.md": crew_output.tasks_output[2].raw if len(crew_output.tasks_output) > 2 else "No visual design available"
         }
         
-        # Save each result to its corresponding file
-        for filename, content in result_mapping.items():
-            if isinstance(content, (str, tuple)):
-                self._save_output(content, filename)
-        
-        return result_mapping 
+        return result_mapping, json.dumps(metadata, indent=2) 

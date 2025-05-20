@@ -30,9 +30,10 @@ class WriterAgent:
             2. Includes clear markers for visual content placement every 200 words using this format:
                [VISUAL_CONTENT_MARKER: Brief description of the content being discussed here]
             3. Is formatted for skimmability with short paragraphs and bullet points
-            4. Naturally incorporates the main keyword and related terms
-            5. Addresses common questions and user intent
-            6. Follows SEO best practices
+            4. Prefer to use short paragraphs -1-2 sentences max - over bullet points.
+            5. Naturally incorporates the main keyword and related terms
+            6. Addresses common questions and user intent
+            7. Follows SEO best practices
             
             Format the output in Markdown and ensure the visual content markers are placed at natural 
             breaks in the content where visuals would enhance understanding or engagement.

@@ -49,7 +49,7 @@ class VisualDesignerAgent:
             Make sure all visual suggestions align with the content's tone and purpose.
             """,
             expected_output=f"""A comprehensive visual content plan in {language} containing:
-            1. Multiple visual suggestions for each content section
+            1. 2 visual suggestions for each content section
             2. Detailed specifications for each visual
             3. Style and design recommendations
             4. Technical requirements

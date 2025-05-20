@@ -19,7 +19,7 @@ class ResearcherAgent:
             verbose=True,
             allow_delegation=False,
             tools=[SerperDevTool(), WebsiteSearchTool()],
-            llm=ChatOpenAI(temperature=0.7, model="gpt-4-turbo")
+            llm=ChatOpenAI(temperature=0.7, model="gpt-4.1")
         )
 
     def research_task(self, keyword: str, language: str) -> Task:

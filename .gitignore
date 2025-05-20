@@ -1,3 +1,24 @@
+# Ignore local environment files (except .env.example)
 .env
 .env*
-!.env.example 
+!.env.example
+
+# Ignore Python bytecode (__pycache__) and virtual environment folders
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+venv/
+ENV/
+
+# Ignore common OS generated files (e.g. .DS_Store, Thumbs.db)
+.DS_Store
+Thumbs.db
+
+# Ignore common IDE (or editor) folders (e.g. .idea, .vscode)
+.idea/
+.vscode/
+*.swp
+
+# Ignore log files (if any)
+*.log 
