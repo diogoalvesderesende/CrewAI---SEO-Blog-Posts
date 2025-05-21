@@ -1,7 +1,10 @@
+# sitecustomize.py
+"""
+Runs before any other import, even on Streamlit Cloud.
+Replaces the old system sqlite3 module with the modern one that ships
+inside the pysqlite3-binary wheel (SQLite ≥ 3.45).
+"""
 import sys
 
-# 1. Load the wheel that carries SQLite ≥ 3.35
-import pysqlite3
-
-# 2. Force every future "import sqlite3" to use that wheel
-sys.modules["sqlite3"] = pysqlite3 
+import pysqlite3          # wheel already in requirements.txt
+sys.modules["sqlite3"] = pysqlite3
